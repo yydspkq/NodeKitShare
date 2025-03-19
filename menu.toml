@@ -1,0 +1,209 @@
+title = "我的脚本集合"
+splash = """
+                *@@@@@@@@@@@@@   @@@@                                                       
+            @@@@@:          @@@ @@   @@                                                     
+          @@@                 @@*     @                                                     
+        @@@                          :@                                                     
+       @@                            :@                                                     
+       @* @@@@@@@             :@      @                                                     
+      *@@@      @@@+         @@ @@   @@                                                     
+       @           @@@@   @@@@   @@@@@                     @@@@@@                           
+                     @@   @@                               @.  @@                           
+                     @@   @@                              @@    @@                          
+                     @@   @@          @@       @@        -@      @-                         
+                     @@   @@        @@@@       @@@@#     @@      @@                         
+                     @@   @@       @@  @       @@  @@   @@        @@                        
+                     @@   @@      @+  %@       @@   @@   @@      @@                         
+                     @@   @@     @@   @@       @@    @    @@    @@          -@@             
+                     @@   @@     @@    @@      @@    @@   @@    @@      @@@@@  @@@@=        
+ @@@@@@              @@   @@     @@     @@@@@@@@     @:   @@    @@    @@@          @@       
+@@     @@            @@   @@     @@                 @@    @@    @@    @+   @@@@@@   @@      
+@@      @@           @@   @@      @@               @@     @@    @@   @@   @@    @@   @%     
+ @       @           @@   @@       -@@           *@@      @@    @@   @-  @@     #@   @@     
+ @@      @@          @@   @@         @@@@      @@@        @@    @@   @@   @@   @@@   @      
+  @       @          @@   @@           @@      @@         @@    @@    @@    @@@@    @@      
+  @@      @@       =+@@%@@@@+%         @@      @@         @@    @@     @@         @@@       
+   @=      @       @@       +@         @@      @@         @@    @@     @@      @@@@         
+   @@      @@      @*        @         @@      @@         @@    @@     @       @            
+    @       @@     @:        @         @@      @@         @@    @@    @       @             
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     
+@@                                                                                   @@     
+@@                                @                           @@                     @@     
+@@     @@#    @                   @              @@   @@                @            @@     
+@@     @ @    @    @@@@@     @@@@@@     @@@@@    @= @@      @@@@     @@@@@@@@        @@     
+@@     @  @   @  @@     @   @@    @    @     @   @@@           @        @            @@     
+@@     @   @  @  @      @@  @     @   @@@@@@@@   @: @          @        @            @@     
+@@     @   -@ @  @@     @   @     @   @@         @+  @@        @        @            @@     
+@@     @    @@@   @@. @@@    @@ @@@    @@@@@@    @@   @@    @:@@@-@     @@@@         @@     
+@@                                                                                   @@     
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
+"""
+
+[app]
+entry = 'main' # 菜单入口
+
+[scripts]
+# 脚本集合，键值对
+cpuinfo = "cat /proc/cpuinfo"
+memory = "free -h"
+disk = "df -hT"
+update = "apt update -y && apt install -y curl socat wget sudo"
+
+yabs = "curl -sL yabs.sh | bash"
+media = "bash <(curl -sL Media.Check.Place)"
+ip = "bash <(curl -sL IP.Check.Place)"
+network = "bash <(curl -sL Net.Check.Place)"
+autotrace = "wget -N --no-check-certificate https://raw.githubusercontent.com/Chennhaoo/Shell_Bash/master/AutoTrace.sh && chmod +x AutoTrace.sh && bash AutoTrace.sh"
+
+swap = "wget https://www.moerats.com/usr/shell/swap.sh && bash swap.sh"
+tcp = "wget http://sh.nekoneko.cloud/tools.sh -O tools.sh && bash tools.sh"
+dns = "wget https://raw.githubusercontent.com/Jimmyzxk/DNS-Alice-Unlock/refs/heads/main/dns-unlock.sh && bash dns-unlock.sh"
+gost = "wget --no-check-certificate -O gost.sh https://raw.githubusercontent.com/KANIKIG/Multi-EasyGost/master/gost.sh && chmod +x gost.sh && ./gost.sh"
+realm = "wget -N https://raw.githubusercontent.com/qqrrooty/EZrealm/main/realm.sh && chmod +x realm.sh && ./realm.sh"
+
+docker = "bash <(curl -sL 'https://get.docker.com')"
+nezha = "curl -L https://raw.githubusercontent.com/nezhahq/scripts/refs/heads/v0/install.sh -o nezha.sh && chmod +x nezha.sh && sudo ./nezha.sh"
+bt = "wget -O install.sh http://v7.hostcli.com/install/install-ubuntu_6.0.sh && sudo bash install.sh"
+jg = "bash <(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh)"
+
+[[menus]]
+id = "main"
+title = "主菜单"
+sub_menus = [
+    "system",
+    "test",
+    "tool",
+    "software"
+]
+
+[[menus]]
+id = "system"
+title = "系统信息"
+sub_menus = [
+    "cpu",
+    "memory",
+    "disk",
+    "update"
+]
+
+[[menus]]
+id = "cpu"
+title = "CPU信息"
+script = "cpuinfo"
+
+[[menus]]
+id = "memory"
+title = "内存信息"
+script = "memory"
+
+[[menus]]
+id = "disk"
+title = "硬盘信息"
+script = "disk"
+
+[[menus]]
+id = "update"
+title = "系统更新"
+script = "update"
+
+[[menus]]
+id = "test"
+title = "测试系列"
+sub_menus = [
+    "yabs",
+    "media",
+    "ip",
+    "network",
+    "autotrace"
+]
+
+[[menus]]
+id = "yabs"
+title = "YABS测试"
+script = "yabs"
+
+[[menus]]
+id = "media"
+title = "流媒体测试"
+script = "media"
+
+[[menus]]
+id = "ip"
+title = "IP质量测试"
+script = "ip"
+
+[[menus]]
+id = "network"
+title = "网络质量测试"
+script = "network"
+
+[[menus]]
+id = "autotrace"
+title = "三网回程测试"
+script = "autotrace"
+
+[[menus]]
+id = "tool"
+title = "工具系列"
+sub_menus = [
+    "swap",
+    "tcp",
+    "dns",
+    "gost",
+    "realm"
+]
+
+[[menus]]
+id = "swap"
+title = "增加虚拟内存"
+script = "swap"
+
+[[menus]]
+id = "tcp"
+title = "TCP窗口调优"
+script = "tcp"
+
+[[menus]]
+id = "dns"
+title = "修改解锁DNS"
+script = "dns"
+
+[[menus]]
+id = "gost"
+title = "GOST转发"
+script = "gost"
+
+[[menus]]
+id = "realm"
+title = "REALM转发"
+script = "realm"
+
+[[menus]]
+id = "software"
+title = "软件系列"
+sub_menus = [
+    "docker",
+    "nezha",
+    "bt",
+    "jg"
+]
+
+[[menus]]
+id = "docker"
+title = "安装应用容器"
+script = "docker"
+
+[[menus]]
+id = "nezha"
+title = "安装哪吒监控"
+script = "nezha"
+
+[[menus]]
+id = "bt"
+title = "安装宝塔面板"
+script = "bt"
+
+[[menus]]
+id = "jg"
+title = "安装极光面板"
+script = "jg"
