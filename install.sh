@@ -11,7 +11,7 @@ curl -so /etc/nodekit/menu.toml $MENU_URL
 
 cat > /usr/bin/nsk <<-EOF
 #!/bin/bash
-nodekit -local /etc/nodekit/menu.toml
+nodekit -subscribe https://raw.githubusercontent.com/yydspkq/NodeKitShare/refs/heads/main/menu.toml
 EOF
 chmod u+x /usr/bin/nsk
 
